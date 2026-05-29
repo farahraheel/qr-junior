@@ -1,323 +1,306 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فعاليات جناح الحاسب الآلي - جامعة طرابلس</title>
-
+    <title>مفاجآت جناح الحاسب الآلي</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-@@ -13,10 +14,10 @@
+
+    <style>
         :root {
-            --neon-cyan: #00e5ff;
             --neon-green: #00ff66;
-            --neon-purple: #9d4edd;
-            --bg-dark: #050911;
-            --panel-bg: rgba(10, 20, 38, 0.7);
+            --neon-cyan: #00e5ff;
+            --neon-amber: #f59e0b;
+            --bg-dark: #060b13;
+            --panel-bg: rgba(10, 20, 38, 0.65);
             --border-glow: rgba(0, 229, 255, 0.15);
         }
 
         body {
-@@ -33,7 +34,7 @@
-            scroll-behavior: smooth;
-        }
-
-        /* حاوية الشعار والترويسة */
-        .header-section {
+            margin: 0;
+            padding: 30px 20px;
+            font-family: 'Cairo', sans-serif;
+            background: radial-gradient(circle at center, #0f2042 0%, var(--bg-dark) 70%);
+            color: #ffffff;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-@@ -43,8 +44,8 @@
+            align-items: center;
+            justify-content: flex-start;
+            box-sizing: border-box;
         }
 
-        .logo-wrap {
-            width: 100px;
-            height: 100px;
+        /* قسم الترويسة والشعار */
+        .brand-logo-zone {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .logo-glow-effect {
+            width: 95px;
+            height: 95px;
             background: linear-gradient(135deg, var(--neon-cyan), var(--neon-green));
             border-radius: 50%;
             display: flex;
-@@ -71,18 +72,18 @@
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+        }
+
+        .logo-glow-effect img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--bg-dark);
+        }
+
+        .brand-title {
+            margin-top: 12px;
+            font-size: 22px;
+            font-weight: 900;
+            background: linear-gradient(90deg, #ffffff, var(--neon-cyan));
+            -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* اللوحة الترحيبية الأساسية */
-        .welcome-panel {
+        /* لوحة التحكم الرئيسية */
+        .control-panel {
             background: var(--panel-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
             border: 1px solid var(--border-glow);
-            padding: 35px 25px;
+            padding: 30px;
             border-radius: 24px;
             width: 100%;
-            max-width: 500px;
+            max-width: 450px;
             box-sizing: border-box;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 25px;
         }
-@@ -91,8 +92,8 @@
-            font-size: 26px;
+
+        .control-panel h2 {
+            font-size: 24px;
             font-weight: 800;
-            margin: 0 0 12px 0;
-            color: var(--neon-green);
-            text-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
+            margin: 0 0 10px 0;
+            color: #ffffff;
         }
 
-        .welcome-panel p {
-@@ -102,19 +103,19 @@
-            line-height: 1.6;
+        .control-panel p {
+            font-size: 15px;
+            color: #cbd5e1;
+            margin: 0 0 20px 0;
         }
 
-        /* زر الدعاية والرفع الفوري للدليل */
-        .explore-btn {
+        /* حقل الإدخال والزر */
+        input {
             width: 100%;
             padding: 16px;
-            border: none;
+            background: rgba(5, 10, 20, 0.8);
+            border: 1.5px solid rgba(255, 255, 255, 0.08);
             border-radius: 14px;
             font-family: 'Cairo', sans-serif;
-            font-size: 17px;
-            font-weight: 700;
-            color: #050911;
-            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-green));
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(0, 255, 102, 0.3);
-            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-            display: inline-flex;
-            align-items: center;
-@@ -125,217 +126,202 @@
-        .explore-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 255, 102, 0.5);
-            filter: brightness(1.1);
-        }
-
-        /* دليل الفعاليات والأنشطة المطور */
-        .guide-container {
-            width: 100%;
-            max-width: 500px;
+            font-size: 15px;
+            color: #ffffff;
+            text-align: center;
+            outline: none;
             box-sizing: border-box;
         }
 
-        .guide-title-badge {
-            font-size: 14px;
+        input:focus {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+        }
+
+        .neon-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 14px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #060b13;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-green));
+            cursor: pointer;
+            margin-top: 15px;
+            box-shadow: 0 5px 20px rgba(0, 255, 102, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .neon-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 255, 102, 0.35);
+        }
+
+        /* لوحة العرض الدعائية المباشرة */
+        .promo-card {
+            width: 100%;
+            max-width: 450px;
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.85), rgba(6, 11, 19, 0.95));
+            border-radius: 24px;
+            padding: 30px 25px;
+            box-sizing: border-box;
+            border: 1px solid rgba(0, 229, 255, 0.25);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6), 0 0 30px rgba(0, 229, 255, 0.05);
+        }
+
+        .promo-badge {
+            font-size: 13px;
             font-weight: 700;
             color: var(--neon-cyan);
-            text-align: center;
-            margin-bottom: 20px;
             letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-
-        }
-
-        .live-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--neon-cyan);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--neon-cyan);
-            animation: blink 1.5s infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 0.5; transform: scale(0.9); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
-
-        /* كروت الأنشطة المقتبسة من خطة القسم */
-        .activity-card {
-            background: linear-gradient(145deg, rgba(15, 23, 42, 0.8), rgba(6, 11, 19, 0.95));
-            border-radius: 20px;
-            padding: 20px;
             margin-bottom: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            text-align: center;
+            border-bottom: 1px dashed rgba(255,255,255,0.1);
+            padding-bottom: 10px;
         }
 
-        .activity-card::before {
-            content: '';
-            position: absolute;
-            top: 0; right: 0; width: 4px; height: 100%;
-            background: var(--neon-cyan);
-            opacity: 0.5;
-            transition: all 0.3s ease;
-        }
-
-        .activity-card:hover {
-            border-color: rgba(0, 229, 255, 0.25);
-            box-shadow: 0 15px 35px rgba(0, 229, 255, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .activity-card:hover::before {
-            background: linear-gradient(to bottom, var(--neon-cyan), var(--neon-green));
-            opacity: 1;
-
-        }
-
-        .card-header {
+        /* قائمة المفاجآت التفاعلية */
+        .gift-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 8px;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 16px;
+            margin-bottom: 15px;
+            text-align: right;
+            transition: all 0.3s ease;
         }
 
-        .card-icon {
-            font-size: 22px;
-            background: rgba(255, 255, 255, 0.04);
-            width: 42px;
-            height: 42px;
+        .gift-item:hover {
+            background: rgba(0, 229, 255, 0.05);
+            border-color: rgba(0, 229, 255, 0.2);
+            transform: scale(1.02);
+        }
+
+        .gift-icon {
+            font-size: 28px;
+            background: rgba(255,255,255,0.05);
+            width: 55px;
+            height: 55px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-
-
-
-
-
-
-
-
-
+            border-radius: 12px;
+            box-shadow: inset 0 0 10px rgba(255,255,255,0.05);
         }
 
-        .card-title {
+        .gift-icon.cyan { color: var(--neon-cyan); text-shadow: 0 0 10px rgba(0, 229, 255, 0.3); }
+        .gift-icon.green { color: var(--neon-green); text-shadow: 0 0 10px rgba(0, 255, 102, 0.3); }
+        .gift-icon.amber { color: var(--neon-amber); text-shadow: 0 0 10px rgba(245, 158, 11, 0.3); }
+
+        .gift-details {
+            flex: 1;
+        }
+
+        .gift-title {
             font-size: 16px;
             font-weight: 700;
             color: #ffffff;
-
+            margin-bottom: 2px;
         }
 
-        .card-body {
-            font-size: 13.5px;
+        .gift-desc {
+            font-size: 13px;
             color: #94a3b8;
-            line-height: 1.6;
-            padding-right: 2px;
+            line-height: 1.4;
         }
 
-        /* وسم فرعي لعناصر القوائم الداخلية */
-        .inner-list {
-            margin: 8px 0 0 0;
-            padding-right: 18px;
-            color: #cbd5e1;
+        /* أنيميشن وميض خفيف للفت الانتباه */
+        .live-pulse {
+            width: 8px;
+            height: 8px;
+            background-color: var(--neon-green);
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 8px;
+            box-shadow: 0 0 10px var(--neon-green);
+            animation: pulse 1.5s infinite;
         }
-        
-        .inner-list li {
-            margin-bottom: 4px;
+
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.6; }
+            50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 15px var(--neon-green); }
+            100% { transform: scale(0.9); opacity: 0.6; }
         }
     </style>
 </head>
 
 <body>
 
-
-<div class="header-section">
-    <div class="logo-wrap">
-        <img src="./IMG_5131.JPG" alt="شعار كلية العلوم / قسم الحاسب الآلي">
+<!-- قسم الترويسة والشعار -->
+<div class="brand-logo-zone">
+    <div class="logo-glow-effect">
+        <img src="./IMG_5131.JPG" alt="شعار القسم">
     </div>
-    <h1>جامعة طرابلس | قسم الحاسب الآلي</h1>
+    <div class="brand-title">قسم الحاسب الآلي</div>
 </div>
 
+<div class="control-panel">
+    <h2>انظر ماذا ينتظرك بالداخل! 🔥</h2>
+    <p>لقد جهزنا لك فعاليات تكنولوجية مذهلة ومفاجآت رقمية فريدة.</p>
 
-<div class="welcome-panel">
-    <h2>ماذا ينتظرك في جناحنا؟ 🚀</h2>
-    <p>ندعوك لخوض تجربة برمجية فريدة واكتشاف الأنشطة التفاعلية الرائعة والمشاريع الذكية المجهزة بأيدي طلبة القسم في المعرض التعريفي.</p>
-
-    <button class="explore-btn" onclick="scrollToGuide()">
-        <span>استكشف دليل الفعاليات والمفاجآت</span> ↓
-
-    </button>
+    <input id="userNameField" placeholder="اكتب اسمك الثلاثي هنا لتجهيز هديتك..." autocomplete="off">
+    <button class="neon-btn" onclick="scollToPromo()">احجز هديتك المخصصة الآن</button>
 </div>
 
-<div class="guide-container" id="eventsGuide">
-
-
-    <div class="guide-title-badge">
-        <span class="live-pulse live-dot"></span> دليل الأنشطة والفعاليات المعتمدة للجناح
+<div class="promo-card" id="detailsCard">
+    <div class="promo-badge">
+        <span class="live-pulse"></span> شيفرات خفية بانتظار فك قفلها داخل الجناح
     </div>
 
-    <div class="activity-card" style="border-right-color: var(--neon-cyan)">
-
-        <div class="card-header">
-            <div class="card-icon" style="color: var(--neon-cyan)">🎮</div>
-            <div class="card-title">1. الألعاب البرمجية الحماسية</div>
-        </div>
-        <div class="card-body">
-            تحديات ذكاء برمجية ممتعة تشمل:
-            <ul class="inner-list">
-                <li><strong>تحدي Bug المختفي:</strong> اكتشف الخطأ البرمجي في الأكواد المستوحاة من المناهج لتفوز بملصق تقني.</li>
-                <li><strong>مسابقة سباق CTF:</strong> حل تحديات الأمن السيبراني والهكر الأخلاقي للوصول إلى العلم (Flag).</li>
-                <li><strong>لعبة XO البرمجية:</strong> العب بشكل تفاعلي ذكي مباشرة مع الحاسوب.</li>
-            </ul>
+    <!-- تلميح 1 غامض ومغلق -->
+    <div class="gift-item">
+        <div class="gift-icon cyan">🔒</div>
+        <div class="gift-details">
+            <div class="gift-title">المفاجأة الرقمية الأولى: الشيفرة الشخصية</div>
+            <div class="gift-desc">عند كتابة اسمك بالأعلى، سيقوم النظام بتوليد رمز برمجي غامض خاص بهويتك الرقمية، ستحتاجه كبوابة عبور لاستلام شيء ملموس ومميز صُمم لأجلك فقط!</div>
         </div>
     </div>
 
-    <div class="activity-card" style="border-right-color: var(--neon-green)">
-
-        <div class="card-header">
-            <div class="card-icon" style="color: var(--neon-green)">💡</div>
-            <div class="card-title">2. ركن نصيحة وإرشاد</div>
-        </div>
-        <div class="card-body">
-            محطة إرشادية يقدم فيها طلبة القسم المتقدمون خلاصة تجربتهم، ونصائح قيمة لاجتياز المواد الدراسية الصعبة وعقبات الفصول الأولى للطلبة الجدد والمهتمين.
+    <!-- تلميح 2 غامض ومغلق -->
+    <div class="gift-item">
+        <div class="gift-icon green">👾</div>
+        <div class="gift-details">
+            <div class="gift-title">المفاجأة الثانية: تحدي المنطقة المحظورة</div>
+            <div class="gift-desc">شاشات الجناح تخفي بداخلها مواجهة برمجية وتحديات ذكاء غامضة ستتفاعل معها مباشرة. الأسرع والأذكى سينال مكافأة فورية تكسر جمود الأكواد.</div>
         </div>
     </div>
 
-    <div class="activity-card" style="border-right-color: var(--neon-purple)">
-
-        <div class="card-header">
-            <div class="card-icon" style="color: var(--neon-purple)">🎡</div>
-            <div class="card-title">3. تطبيق عجلة الحظ الرقمية</div>
-        </div>
-        <div class="card-body">
-            تطبيق ويب تفاعلي يعرض عجلة حظ تدور برمجياً أمام الجميع؛ لتختار لك سؤالاً برمجياً خفيفاً، أو نصيحة برمجية مخصصة، أو جائزة رمزية (ملصق، أو قطعة حلوى).
+    <!-- تلميح 3 غامض ومغلق -->
+    <div class="gift-item">
+        <div class="gift-icon amber">⚡</div>
+        <div class="gift-details">
+            <div class="gift-title">المفاجأة الثالثة: نافذة المستقبل الحيّ</div>
+            <div class="gift-desc">تجارب تفاعلية وعروض حية لا نود حرق تفاصيلها هنا! خطوة واحدة داخل الجناح ستجعلك ترى كيف تتحول الأفكار البرمجية الصامتة إلى واقع يتحرك أمام عينيك.</div>
         </div>
     </div>
-
-    <div class="activity-card" style="border-right-color: var(--neon-cyan)">
-
-        <div class="card-header">
-            <div class="card-icon" style="color: var(--neon-cyan)">🚀</div>
-            <div class="card-title">4. عروض مشاريع التخرج المميزة</div>
-        </div>
-        <div class="card-body">
-            منصة مخصصة لاستعراض أبرز مشاريع التخرج الابتكارية التي تخدم المصلحة العامة، لتبسيط كيفية تحويل الأفكار البرمجية وتطبيقها على أرض الواقع.
-        </div>
-    </div>
-
-    <div class="activity-card" style="border-right-color: var(--neon-green)">
-        <div class="card-header">
-            <div class="card-icon" style="color: var(--neon-green)">💻</div>
-            <div class="card-title">5. محاكي الأسماء بالنظام الثنائي (Binary)</div>
-        </div>
-        <div class="card-body">
-            تطبيق ويب مصغر ومفتوح على شاشة العرض؛ يتيح لك إدخال أي اسم عبر لوحة المفاتيح ليقوم البرنامج فوراً وبشكل بصري متحرك بتحويله إلى لغة الأصفار والواحدات (0,1) للاحتفاظ بها كتذكار.
-        </div>
-    </div>
-
-    <div class="activity-card" style="border-right-color: var(--neon-purple)">
-
-        <div class="card-header">
-            <div class="card-icon" style="color: var(--neon-purple)">🎬</div>
-            <div class="card-title">6. العرض المرئي التفاعلي والمسارات</div>
-        </div>
-        <div class="card-body">
-            شاشة عرض تعرض نبذة تعريفية شاملة عن قسم الحاسب الآلي، وأهدافه الاستراتيجية، بالإضافة إلى استعراض المسارات المهنية المتنوعة التي يمكن لخريج القسم العمل بها مستقبلاً.
-        </div>
-    </div>
-
 </div>
 
 <script>
-// دالة التمرير السلس الذكي للنزول مباشرة إلى بداية دليل الفعاليات
-function scrollToGuide() {
-    const guideSection = document.getElementById("eventsGuide");
-    guideSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+function scollToPromo() {
+    const inputField = document.getElementById("userNameField");
+    const nameData = inputField.value.trim();
+
+    if(nameData === "") {
+        alert("أهلاً بك! لقد تم حجز مكانك بالجناح، ولكن يفضل كتابة اسمك بالأعلى لتخصيص كود الـ Binary الخاص بك! ✨");
+        inputField.focus();
+        return;
+    }
+
+    alert(`مرحباً بك يا ${nameData}! تم تسجيل اسمك وتجهيز هديتك الرقمية بنجاح، تفضل بزيارة جناحنا لفك قفل المفاجأة واستلامها فوراً! 🎁💻`);
 }
 </script>
+
+</body>
+</html>
