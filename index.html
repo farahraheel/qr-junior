@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +11,6 @@
 
     <style>
         :root {
-
             --neon-cyan: #00e5ff;
             --neon-green: #00ff66;
             --neon-purple: #9d4edd;
@@ -28,7 +29,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-
             box-sizing: border-box;
             scroll-behavior: smooth;
         }
@@ -42,6 +42,7 @@
             text-align: center;
         }
 
+        /* إضافة حركة النبض للشعار */
         .logo-wrap {
             width: 100px;
             height: 100px;
@@ -51,7 +52,15 @@
             align-items: center;
             justify-content: center;
             padding: 3px;
-            box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.4);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: logoPulse 3s infinite ease-in-out;
+        }
+
+        /* تأثير الحركة عند تمرير الماوس فوق الشعار */
+        .logo-wrap:hover {
+            transform: scale(1.08) rotate(360deg);
+            box-shadow: 0 0 45px rgba(0, 255, 102, 0.7), 0 0 20px rgba(0, 229, 255, 0.4);
         }
 
         .logo-wrap img {
@@ -60,6 +69,16 @@
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--bg-dark);
+        }
+
+        /* أنيميشن النبض المستمر للشعار */
+        @keyframes logoPulse {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(0, 229, 255, 0.3), inset 0 0 10px rgba(0, 229, 255, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 35px rgba(0, 229, 255, 0.6), 0 0 15px rgba(0, 255, 102, 0.4);
+            }
         }
 
         .header-section h1 {
@@ -88,11 +107,10 @@
         }
 
         .welcome-panel h2 {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 800;
             margin: 0 0 12px 0;
-            color: var(--neon-green);
-            text-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
+            color: #ffffff;
         }
 
         .welcome-panel p {
@@ -102,33 +120,14 @@
             line-height: 1.6;
         }
 
-        /* زر الدعاية والرفع الفوري للدليل */
+        /* زر الانتقال المباشر */
         .explore-btn {
             width: 100%;
             padding: 16px;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             border: none;
             border-radius: 14px;
             font-family: 'Cairo', sans-serif;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 700;
             color: #050911;
             background: linear-gradient(90deg, var(--neon-cyan), var(--neon-green));
@@ -147,16 +146,11 @@
             filter: brightness(1.1);
         }
 
-        /* دليل الفعاليات والأنشطة المطور */
+        /* حاوية الكروت */
         .guide-container {
             width: 100%;
             max-width: 500px;
-
-
-
             box-sizing: border-box;
-
-
         }
 
         .guide-title-badge {
@@ -186,7 +180,7 @@
             50% { opacity: 1; transform: scale(1.2); }
         }
 
-        /* كروت الأنشطة المقتبسة من خطة القسم */
+        /* كروت الأنشطة والبروتوكولات */
         .activity-card {
             background: linear-gradient(145deg, rgba(15, 23, 42, 0.8), rgba(6, 11, 19, 0.95));
             border-radius: 20px;
@@ -205,11 +199,6 @@
             top: 0; right: 0; width: 4px; height: 100%;
             background: var(--neon-cyan);
             opacity: 0.5;
-
-
-
-
-
             transition: all 0.3s ease;
         }
 
@@ -225,15 +214,10 @@
         }
 
         .card-header {
-
-
-
-
             display: flex;
             align-items: center;
             gap: 12px;
             margin-bottom: 8px;
-
         }
 
         .card-icon {
@@ -246,13 +230,17 @@
             justify-content: center;
             border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .activity-card:hover .card-icon {
+            transform: rotate(10deg);
         }
 
         .card-title {
             font-size: 16px;
             font-weight: 700;
             color: #ffffff;
-
         }
 
         .card-body {
@@ -260,24 +248,6 @@
             color: #94a3b8;
             line-height: 1.6;
             padding-right: 2px;
-        }
-
-        /* وسم فرعي لعناصر القوائم الداخلية */
-        .inner-list {
-            margin: 8px 0 0 0;
-            padding-right: 18px;
-            color: #cbd5e1;
-
-
-
-
-
-        }
-        
-        .inner-list li {
-            margin-bottom: 4px;
-
-
         }
     </style>
 </head>
@@ -292,92 +262,88 @@
 </div>
 
 <div class="welcome-panel">
-    <h2>ماذا ينتظرك في جناحنا؟ 🚀</h2>
-    <p>ندعوك لخوض تجربة برمجية فريدة واكتشاف الأنشطة التفاعلية الرائعة والمشاريع الذكية المجهزة بأيدي طلبة القسم في المعرض التعريفي.</p>
+    <h2>الأنظمة التفاعلية داخل الجناح 💻</h2>
+    <p>مرحباً بك في المنصة الرقمية المخصصة لاستكشاف الأنظمة والبيئات البرمجية النشطة داخل المعرض التعريفي للقسم.</p>
     
     <button class="explore-btn" onclick="scrollToGuide()">
-        <span>استكشف دليل الفعاليات والمفاجآت</span> ↓
+        <span>استكشف البروتوكولات النشطة بالجناح</span> ↓
     </button>
 </div>
 
 <div class="guide-container" id="eventsGuide">
     
     <div class="guide-title-badge">
-        <span class="live-pulse live-dot"></span> دليل الأنشطة والفعاليات المعتمدة للجناح
+        <span class="live-pulse live-dot"></span> البروتوكولات والأنظمة الخفية داخل الجناح
     </div>
 
     <div class="activity-card" style="border-right-color: var(--neon-cyan)">
         <div class="card-header">
             <div class="card-icon" style="color: var(--neon-cyan)">🎮</div>
-            <div class="card-title">1. الألعاب البرمجية الحماسية</div>
+            <div class="card-title">1. بروتوكول المواجهة والأنظمة التفاعلية</div>
         </div>
         <div class="card-body">
-            تحديات ذكاء برمجية ممتعة تشمل:
-            <ul class="inner-list">
-                <li><strong>تحدي Bug المختفي:</strong> اكتشف الخطأ البرمجي في الأكواد المستوحاة من المناهج لتفوز بملصق تقني.</li>
-                <li><strong>مسابقة سباق CTF:</strong> حل تحديات الأمن السيبراني والهكر الأخلاقي للوصول إلى العلم (Flag).</li>
-                <li><strong>لعبة XO البرمجية:</strong> العب بشكل تفاعلي ذكي مباشرة مع الحاسوب.</li>
-            </ul>
+            شاشات الجناح تخفي بداخلها مواجهة تكنولوجية وبيئة محاكاة غامضة ستتفاعل معها مباشرة. الأسرع والأقوى في تجاوز الشيفرات سينال مكافأة فورية تكسر جمود الأكواد.
         </div>
     </div>
 
     <div class="activity-card" style="border-right-color: var(--neon-green)">
         <div class="card-header">
             <div class="card-icon" style="color: var(--neon-green)">💡</div>
-            <div class="card-title">2. ركن نصيحة وإرشاد</div>
+            <div class="card-title">2. نافذة الاستراتيجيات وخريطة العبور</div>
         </div>
         <div class="card-body">
-            محطة إرشادية يقدم فيها طلبة القسم المتقدمون خلاصة تجربتهم، ونصائح قيمة لاجتياز المواد الدراسية الصعبة وعقبات الفصول الأولى للطلبة الجدد والمهتمين.
+            محطة تخصصية تجمعك بنخبة من عناصر القسم المتقدمين؛ مصممة لتبسيط خوارزميات تجاوز العقبات وفك تعقيدات المسار التقني بنجاح من خلال استراتيجيات مجربة.
         </div>
     </div>
 
     <div class="activity-card" style="border-right-color: var(--neon-purple)">
         <div class="card-header">
             <div class="card-icon" style="color: var(--neon-purple)">🎡</div>
-            <div class="card-title">3. تطبيق عجلة الحظ الرقمية</div>
+            <div class="card-title">3. خوارزمية السحب الرقمي العشوائي</div>
         </div>
         <div class="card-body">
-            تطبيق ويب تفاعلي يعرض عجلة حظ تدور برمجياً أمام الجميع؛ لتختار لك سؤالاً برمجياً خفيفاً، أو نصيحة برمجية مخصصة، أو جائزة رمزية (ملصق، أو قطعة حلوى).
+            نظام تفاعلي يعتمد على توزيع عشوائي مبرمج بالكامل أمام أعين الجميع، خطوة واحدة منك داخل هذا البروتوكول قد تمنحك جائزة عينية ملموسة أو اختباراً ذكياً سريعاً.
         </div>
     </div>
-
 
     <div class="activity-card" style="border-right-color: var(--neon-cyan)">
         <div class="card-header">
             <div class="card-icon" style="color: var(--neon-cyan)">🚀</div>
-            <div class="card-title">4. عروض مشاريع التخرج المميزة</div>
+            <div class="card-title">4. منصة استعراض الأنظمة الابتكارية المتقدمة</div>
         </div>
         <div class="card-body">
-            منصة مخصصة لاستعراض أبرز مشاريع التخرج الابتكارية التي تخدم المصلحة العامة، لتبسيط كيفية تحويل الأفكار البرمجية وتطبيقها على أرض الواقع.
+            بيئة مخصصة لعرض مخرجات برمجية ونماذج ذكية متطورة كلياً داخل القسم؛ ترى من خلالها كيف تتحول الأفكار البرمجية الصامتة إلى واقع حقيقي يتحرك أمامك.
         </div>
     </div>
 
     <div class="activity-card" style="border-right-color: var(--neon-green)">
         <div class="card-header">
             <div class="card-icon" style="color: var(--neon-green)">💻</div>
-            <div class="card-title">5. محاكي الأسماء بالنظام الثنائي (Binary)</div>
+            <div class="card-title">5. نظام المعالجة الفورية للهوية الرقمية</div>
         </div>
         <div class="card-body">
-            تطبيق ويب مصغر ومفتوح على شاشة العرض؛ يتيح لك إدخال أي اسم عبر لوحة المفاتيح ليقوم البرنامج فوراً وبشكل بصري متحرك بتحويله إلى لغة الأصفار والواحدات (0,1) للاحتفاظ بها كتذكار.
+            بيئة تفاعلية مرتبطة بالخادم المركزي للقسم، تقوم بمعالجة المدخلات بصرياً وتحويلها ديناميكياً لتوليد مخرجات تذكارية مخصصة لكل زائر للاحتفاظ بها.
         </div>
     </div>
 
     <div class="activity-card" style="border-right-color: var(--neon-purple)">
         <div class="card-header">
             <div class="card-icon" style="color: var(--neon-purple)">🎬</div>
-            <div class="card-title">6. العرض المرئي التفاعلي والمسارات</div>
+            <div class="card-title">6. العرض الاستراتيجي ومستقبل المسارات</div>
         </div>
         <div class="card-body">
-            شاشة عرض تعرض نبذة تعريفية شاملة عن قسم الحاسب الآلي، وأهدافه الاستراتيجية، بالإضافة إلى استعراض المسارات المهنية المتنوعة التي يمكن لخريج القسم العمل بها مستقبلاً.
+            شاشة عرض مركزية تكشف أبعاد التخصص والفرص اللامحدودة التي تنتظرك؛ نافذة بصرية متكاملة تحلل كيف تُدار التكنولوجيا وما ينتظر الشغوفين بها خلف الكواليس.
         </div>
     </div>
 
 </div>
 
 <script>
-// دالة التمرير السلس الذكي للنزول مباشرة إلى بداية دليل الفعاليات
 function scrollToGuide() {
     const guideSection = document.getElementById("eventsGuide");
     guideSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 </script>
+
+</body>
+</html>
