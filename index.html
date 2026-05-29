@@ -2,70 +2,110 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>قسم الحاسب الآلي - بطاقة الزائر</title>
+<title>قسم الحاسب الآلي</title>
 
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a, #0f766e);
     color: white;
     text-align: center;
+    overflow-x: hidden;
 }
 
-/* شاشة الدخول */
+/* الشعار */
+.logo {
+    margin-top: 25px;
+    font-size: 22px;
+    font-weight: bold;
+    background: rgba(255,255,255,0.1);
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+/* الحاوية */
 .container {
-    margin-top: 80px;
+    margin-top: 60px;
 }
 
 input {
     padding: 15px;
-    width: 250px;
-    border-radius: 10px;
+    width: 260px;
+    border-radius: 12px;
     border: none;
     font-size: 16px;
+    outline: none;
 }
 
 button {
-    padding: 15px 25px;
-    margin-top: 10px;
+    padding: 14px 25px;
+    margin-top: 12px;
     border: none;
-    border-radius: 10px;
-    background: #22c55e;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #22c55e, #16a34a);
     color: white;
     font-size: 16px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-/* بطاقة الزائر */
+button:hover {
+    transform: scale(1.05);
+}
+
+/* البطاقة */
 .card {
     display: none;
-    margin-top: 50px;
-    padding: 30px;
-    background: white;
-    color: black;
+    margin-top: 40px;
+    padding: 35px;
     width: 320px;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    border-radius: 25px;
+
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+
+    animation: pop 0.6s ease;
+}
+
+/* حركة ظهور */
+@keyframes pop {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
 h1 {
     color: #22c55e;
+    margin-bottom: 10px;
 }
 
 .school {
     font-weight: bold;
-    color: #1e3a8a;
+    color: #a7f3d0;
+}
+
+.small {
+    font-size: 14px;
+    opacity: 0.8;
 }
 </style>
 </head>
 
 <body>
 
+<!-- الشعار -->
+<div class="logo">
+💻 قسم الحاسب الآلي | Computer Science Department
+</div>
+
 <div class="container">
-    <h2>👨‍💻 قسم الحاسب الآلي</h2>
+    <h2>👋 مرحباً بك في جناحنا</h2>
     <p>اكتب اسمك لعرض بطاقة الزائر</p>
 
     <input id="nameInput" placeholder="اكتب اسمك هنا">
@@ -74,9 +114,9 @@ h1 {
 </div>
 
 <div class="card" id="card">
-    <h1>🎉 مرحباً</h1>
+    <h1>🎉 أهلاً وسهلاً</h1>
     <h2 id="visitorName"></h2>
-    <p>أهلاً بك في جناح</p>
+    <p class="small">يسعدنا زيارتك لجناح</p>
     <p class="school">قسم الحاسب الآلي 💻</p>
 </div>
 
@@ -84,13 +124,12 @@ h1 {
 function showCard() {
     let name = document.getElementById("nameInput").value;
 
-    if(name === "") {
-        alert("اكتب اسمك أولاً");
+    if(name.trim() === "") {
+        alert("من فضلك اكتب اسمك");
         return;
     }
 
     document.getElementById("visitorName").innerText = name;
-
     document.getElementById("card").style.display = "block";
 }
 </script>
