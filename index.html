@@ -34,7 +34,7 @@
             scroll-behavior: smooth;
         }
 
-        /* حاوية الشعار */
+        /* قسم الترويسة والشعار المتحرك */
         .header-section {
             display: flex;
             flex-direction: column;
@@ -43,16 +43,18 @@
             text-align: center;
         }
 
+        /* أنيميشن حركة وهالة الشعار */
         .logo-wrap {
-            width: 95px;
-            height: 95px;
+            width: 100px;
+            height: 100px;
             background: linear-gradient(135deg, var(--neon-cyan), var(--neon-green));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 3px;
-            box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+            animation: logoPulse 3s ease-in-out infinite, logoRotate 10s linear infinite;
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.4);
         }
 
         .logo-wrap img {
@@ -61,6 +63,18 @@
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--bg-dark);
+        }
+
+        /* حركة النبض والوهج للشعار */
+        @keyframes logoPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 25px rgba(0, 229, 255, 0.4), 0 0 50px rgba(0, 255, 102, 0.2);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 40px rgba(0, 229, 255, 0.7), 0 0 70px rgba(0, 255, 102, 0.4);
+            }
         }
 
         .header-section h1 {
@@ -72,7 +86,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* اللوحة الرئيسية للتشويق الدائم */
+        /* لوحة التحكم والتشويق الرئيسية */
         .welcome-panel {
             background: var(--panel-bg);
             backdrop-filter: blur(25px);
@@ -103,7 +117,7 @@
             line-height: 1.6;
         }
 
-        /* الزر السحري للنزول الفوري للبطاقات التلميحية */
+        /* زر الرفع والتمرير الفوري */
         .explore-btn {
             width: 100%;
             padding: 16px;
@@ -128,7 +142,7 @@
             box-shadow: 0 10px 30px rgba(0, 255, 102, 0.5);
         }
 
-        /* حاوية بطاقات الغموض والتشويق */
+        /* حاوية التلميحات الغامضة */
         .guide-container {
             width: 100%;
             max-width: 480px;
@@ -146,7 +160,6 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            text-transform: uppercase;
         }
 
         .live-dot {
@@ -163,11 +176,11 @@
             50% { opacity: 1; transform: scale(1.15); }
         }
 
-        /* كروت التشويق الغامضة المحدثة */
+        /* كروت الغموض المطلق */
         .teaser-card {
             background: linear-gradient(145deg, rgba(13, 22, 41, 0.85), rgba(6, 11, 19, 0.95));
             border-radius: 22px;
-            padding: 22px;
+            padding: 25px;
             margin-bottom: 20px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             box-shadow: 0 15px 35px rgba(0,0,0,0.5);
@@ -175,42 +188,28 @@
             position: relative;
         }
 
-        .teaser-card::after {
-            content: '✦';
-            position: absolute;
-            top: 15px;
-            left: 20px;
-            font-size: 14px;
-            opacity: 0.3;
-        }
-
         .teaser-card:hover {
             border-color: var(--border-color, var(--neon-cyan));
             box-shadow: 0 15px 30px var(--shadow-color, rgba(0, 229, 255, 0.15));
-            transform: scale(1.02);
+            transform: translateY(-3px);
         }
 
         .card-header {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 18px;
         }
 
         .card-icon {
-            font-size: 24px;
+            font-size: 26px;
             background: rgba(255, 255, 255, 0.03);
-            width: 48px;
-            height: 48px;
+            width: 52px;
+            height: 52px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 12px;
+            border-radius: 14px;
             border: 1px solid rgba(255, 255, 255, 0.06);
-            transition: transform 0.3s ease;
-        }
-
-        .teaser-card:hover .card-icon {
-            transform: rotate(10deg);
         }
 
         .card-info {
@@ -218,38 +217,38 @@
         }
 
         .card-title {
-            font-size: 16px;
+            font-size: 17px;
             font-weight: 800;
             color: #ffffff;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .card-teaser-text {
             font-size: 13.5px;
             color: #94a3b8;
-            line-height: 1.5;
+            line-height: 1.6;
         }
     </style>
 </head>
 
 <body>
 
-<!-- قسم الشعار العلوي -->
+<!-- قسم الشعار العلوي المتحرك ديناميكياً -->
 <div class="header-section">
     <div class="logo-wrap">
-        <img src="./IMG_5131.JPG" alt="شعار القسم">
+        <img src="photo_2026-05-29_17-47-50.jpg" alt="شعار الجناح">
     </div>
     <h1>قسم الحاسب الآلي</h1>
 </div>
 
-<!-- لوحة التحكم والتشويق الخاطفة -->
+<!-- لوحة التشويق الخاطفة -->
 <div class="welcome-panel">
-    <h2>أسرار برمجية بانتظارك! 🕵️‍♂️✨</h2>
-    <p>لا تشاهد من بعيد.. لقد جهزنا لك تجارب خفية، ألعاباً ذكية، ومفاجآت رقمية ستكتشفها بنفسك بمجرد خطوتك داخل جناحنا بالمعرض التعريفي!</p>
+    <h2>أسرار رقمية بانتظارك! 🕵️‍♂️✨</h2>
+    <p>لا تكتفِ بالمشاهدة من بعيد.. لقد جهزنا لك خلف هذه الشاشات تجارب تفاعلية غامضة، ومفاجآت ذكية ستكتشفها بنفسك بمجرد خطوتك داخل جناحنا!</p>
     
-    <!-- زر الرفع للأسفل الفوري والدعائي -->
+    <!-- زر الرفع السلس نحو التلميحات -->
     <button class="explore-btn" onclick="scrollToTeasers()">
-        <span>ألقِ نظرة سريعة على التلميحات</span> ↓
+        <span>ألقِ نظرة على تلميحات المفاجآت</span> ↓
     </button>
 </div>
 
@@ -263,10 +262,10 @@
     <!-- تلميح 1 -->
     <div class="teaser-card" style="--border-color: var(--neon-cyan); --shadow-color: rgba(0, 229, 255, 0.15)">
         <div class="card-header">
-            <div class="card-icon" style="color: var(--neon-cyan)">🎮</div>
+            <div class="card-icon" style="color: var(--neon-cyan)">⚡</div>
             <div class="card-info">
                 <div class="card-title">تحديات عقول الهاكرز والأكواد</div>
-                <div class="card-teaser-text">هل تمتلك عيناً ثاقبة لاكتشاف الأخطاء الخفية؟ بانتظارك مسابقات سيبرانية تفاعلية لانتزاع الأعلام، ومواجهة مباشرة ضد ذكاء الكمبيوتر!</div>
+                <div class="card-teaser-text">هل تمتلك سرعة البديهة والذكاء لاختراق العقبات الرقمية؟ مواجهات تفاعلية مثيرة بانتظار أصحاب العقول الحاذقة لتسجيل أسمائهم في لوحة الصدارة.</div>
             </div>
         </div>
     </div>
@@ -274,10 +273,10 @@
     <!-- تلميح 2 -->
     <div class="teaser-card" style="--border-color: var(--neon-green); --shadow-color: rgba(0, 255, 102, 0.15)">
         <div class="card-header">
-            <div class="card-icon" style="color: var(--neon-green)">💡</div>
+            <div class="card-icon" style="color: var(--neon-green)">🔮</div>
             <div class="card-info">
-                <div class="card-title">محطة صناع الخبرة البرمجية</div>
-                <div class="card-teaser-text">أسرار وخلاصة تجارب السنين في الفصول الدراسية وتخطي العقبات الصعبة، نلخصها لك في دقائق لترسم مسارك بذكاء داخل الكلية.</div>
+                <div class="card-title">ركن صناع المستقبل والخبرة</div>
+                <div class="card-teaser-text">أسرار برمجية ونصائح استراتيجية غائبة عن الكثيرين، نختصرها لك في محطتنا لتكتشف المفاتيح الحقيقية للتميز البرمجي والجامعي.</div>
             </div>
         </div>
     </div>
@@ -285,10 +284,10 @@
     <!-- تلميح 3 -->
     <div class="teaser-card" style="--border-color: var(--neon-magenta); --shadow-color: rgba(255, 0, 127, 0.15)">
         <div class="card-header">
-            <div class="card-icon" style="color: var(--neon-magenta)">🎡</div>
+            <div class="card-icon" style="color: var(--neon-magenta)">🎁</div>
             <div class="card-info">
-                <div class="card-title">عجلة الحظ التفاعلية والجوائز</div>
-                <div class="card-teaser-text">نقرة واحدة على الشاشة أمام الجميع قد تقلب الموازين! اختبر حظك مع أسئلة خاطفة سريعة ومفاجآت وهدايا فورية بانتظار المحظوظين.</div>
+                <div class="card-title">عجلة الحظ الرقمية والجوائز الفورية</div>
+                <div class="card-teaser-text">نقرة واحدة على شاشتنا التفاعلية قد تقلب الموازين! اختبر حظك مع التحديات الخاطفة لتفوز بهدايا وجوائز برمجية فورية وملموسة بانتظارك.</div>
             </div>
         </div>
     </div>
@@ -296,21 +295,10 @@
     <!-- تلميح 4 -->
     <div class="teaser-card" style="--border-color: var(--neon-cyan); --shadow-color: rgba(0, 229, 255, 0.15)">
         <div class="card-header">
-            <div class="card-icon" style="color: var(--neon-cyan)">🚀</div>
+            <div class="card-icon" style="color: var(--neon-cyan)">💻</div>
             <div class="card-info">
-                <div class="card-title">رؤية المستقبل والواقع البرمجي</div>
-                <div class="card-teaser-text">كيف تتحول الأسطر البرمجية الصامتة إلى مشاريع ذكاء ضخمة تخدم المجتمع وتغير الواقع؟ عروض حية لابتكارات فريدة ستشهدها بنفسك.</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- تلميح 5 -->
-    <div class="teaser-card" style="--border-color: var(--neon-green); --shadow-color: rgba(0, 255, 102, 0.15)">
-        <div class="card-header">
-            <div class="card-icon" style="color: var(--neon-green)">💾</div>
-            <div class="card-info">
-                <div class="card-title">محاكي شفرة اسمك الرقمية</div>
-                <div class="card-teaser-text">برنامج خاص ينتظر تفاعلك على شاشة الجناح، ليأخذ هويتك ويصيغها بأسلوب بصري متحرك إلى لغة الـ Binary لتوثيق زيارتك التكنولوجية.</div>
+                <div class="card-title">محاكي هويتك الرقمية الخاصة</div>
+                <div class="card-teaser-text">نظام تفاعلي ينتظر بصمتك؛ ليأخذ بياناتك ويصيغها بأسلوب مرئي متحرك مذهل يحول حضورك إلى تذكار تكنولوجي لا ينسى.</div>
             </div>
         </div>
     </div>
@@ -318,7 +306,7 @@
 </div>
 
 <script>
-// دالة النزول السلس للقسم التشويقي بلمسة زر سريعة ومرنة
+// دالة النزول السلس للقسم التشويقي بلمسة زر مرنة
 function scrollToTeasers() {
     const section = document.getElementById("teaserSection");
     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
