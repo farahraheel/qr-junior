@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>قسم الحاسب الآلي - QR</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+body {
+  font-family: Arial;
+  text-align: center;
+  background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color: white;
+  padding-top: 50px;
+}
+
+input {
+  padding: 12px;
+  width: 260px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #00c2ff;
+  color: white;
+  font-weight: bold;
+}
+
+#qrcode {
+  margin-top: 20px;
+}
+
+.card {
+  margin-top: 20px;
+}
+
+h1 {
+  margin-bottom: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<div style="font-size:30px;">🎓 قسم الحاسب الآلي</div>
+<p>اكتب اسمك للحصول على بطاقة الزائر</p>
+
+<input type="text" id="name" placeholder="اكتب اسمك">
+<br>
+<button onclick="generate()">توليد QR</button>
+
+<p>👥 عدد الزوار: <span id="count">0</span></p>
+
+<div id="qrcode"></div>
+
+<script>
+// عداد الزوار
+let count = localStorage.getItem("visitors") || 0;
+document.getElementById("count").innerText = count;
+
+// توليد QR
+function generate() {
+  let name = document.getElementById("name").value;
+
+  if(name === "") {
+    alert("اكتب اسمك أولاً");
+    return;
+  }
+
+  // تحديث العداد
+  count++;
+  localStorage.setItem("visitors", count);
+  document.getElementById("count").innerText = count;
+
+  document.getElementById("qrcode").innerHTML = "";
+
+  let url = window.location.href.replace("index.html","qr.html") + "?name=" + encodeURIComponent(name);
+
+  new QRCode(document.getElementById("qrcode"), {
+    text: url,
+    width: 200,
+    height: 200
+  });
+}
+</script>
+
+</body>
+</html>
