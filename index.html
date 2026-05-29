@@ -3,297 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قسم الحاسب الآلي</title>
+    <title>بوابة قسم الحاسب الآلي</title>
     
-    <!-- استدعاء خط Cairo الاحترافي بأوزان متعددة -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary-glow: #22c55e;
-            --primary-gradient: linear-gradient(135deg, #4ade80, #16a34a);
-            --bg-gradient: linear-gradient(135deg, #020617, #0f172a, #1e3a8a, #042f2e);
-            --glass-bg: rgba(255, 255, 255, 0.04);
-            --glass-border: rgba(255, 255, 255, 0.12);
-            --card-glow: 0 0 30px rgba(34, 197, 94, 0.25);
+            --neon-green: #00ff66;
+            --neon-cyan: #00e5ff;
+            --bg-dark: #060b13;
+            --panel-bg: rgba(10, 20, 38, 0.7);
+            --border-glow: rgba(0, 229, 255, 0.2);
         }
 
         body {
             margin: 0;
-            padding: 30px 20px;
+            padding: 40px 20px;
             font-family: 'Cairo', sans-serif;
-            background: var(--bg-gradient);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: #f8fafc;
+            background: radial-gradient(circle at center, #0f2042 0%, var(--bg-dark) 70%);
+            color: #ffffff;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             box-sizing: border-box;
+            overflow-x: hidden;
         }
 
-        /* حركة ديناميكية للخلفية لتغيير الألوان ببطء */
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* حاوية الشعار الجذابة والمستقبلية */
+        .brand-logo-zone {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 35px;
+            position: relative;
         }
 
-        /* الترويسة والشعار */
-        .logo-container {
-            margin-top: 10px;
-            margin-bottom: 30px;
-            text-align: center;
-            background: rgba(15, 23, 42, 0.4);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            padding: 20px 40px;
-            border-radius: 24px;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255,255,255,0.1);
-        }
-        
-        .logo-container img {
-            border-radius: 16px;
-            margin-bottom: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-            transition: transform 0.4s ease;
+        /* دائرة هالة الضوء الملون خلف الشعار */
+        .logo-glow-effect {
+            width: 110px;
+            height: 110px;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+            box-shadow: 0 0 35px rgba(0, 229, 255, 0.4), inset 0 0 15px rgba(255,255,255,0.3);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .logo-container :hover img {
-            transform: rotate(5deg) scale(1.05);
-        }
-
-        .logo-text {
-            font-size: 22px;
-            font-weight: 900;
-            letter-spacing: 0.5px;
-            background: linear-gradient(120deg, #ffffff, #a7f3d0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* حاوية الإدخال الرئيسية */
-        .main-box {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 35px 30px;
-            border-radius: 28px;
-            border: 1px solid var(--glass-border);
+        .logo-glow-effect img {
             width: 100%;
-            max-width: 420px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255,255,255,0.05);
-            box-sizing: border-box;
-            transition: border-color 0.3s ease;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--bg-dark);
         }
 
-        .main-box:focus-within {
-            border-color: rgba(34, 197, 94, 0.4);
+        .brand-logo-zone:hover .logo-glow-effect {
+            transform: scale(1.08) rotate(7deg);
         }
 
-        h2 {
+        .brand-title {
+            margin-top: 15px;
             font-size: 24px;
-            font-weight: 700;
-            margin: 0 0 10px 0;
-            background: linear-gradient(90deg, #fff, #cbd5e1);
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #ffffff, var(--neon-cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
-        .subtitle {
-            font-size: 15px;
+        /* واجهة لوحة التحكم الإدخالية */
+        .control-panel {
+            background: var(--panel-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--border-glow);
+            padding: 40px 35px;
+            border-radius: 28px;
+            width: 100%;
+            max-width: 440px;
+            box-sizing: border-box;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+            text-align: center;
+            position: relative;
+        }
+
+        .control-panel::after {
+            content: '';
+            position: absolute;
+            bottom: 0; right: 10%; left: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-green), transparent);
+        }
+
+        .control-panel h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            color: #f1f5f9;
+        }
+
+        .control-panel p {
+            font-size: 14px;
             color: #94a3b8;
             margin: 0 0 30px 0;
-            font-weight: 300;
         }
 
-        /* حقل إدخال النص */
-        .input-wrapper {
+        /* حقل نصي فضائي ذكي */
+        .input-container {
             position: relative;
-            width: 100%;
+            margin-bottom: 20px;
         }
 
         input {
-            padding: 18px;
             width: 100%;
+            padding: 18px 20px;
+            background: rgba(5, 10, 20, 0.8);
+            border: 1.5px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
-            border: 1.5px solid rgba(255, 255, 255, 0.1);
-            font-size: 16px;
             font-family: 'Cairo', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
             text-align: center;
             outline: none;
-            background: rgba(15, 23, 42, 0.6);
-            color: #ffffff;
-            font-weight: 600;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-sizing: border-box;
-            letter-spacing: 0.5px;
-        }
-
-        input::placeholder {
-            color: #64748b;
-            font-weight: 400;
+            transition: all 0.3s ease;
         }
 
         input:focus {
-            border-color: var(--primary-glow);
-            background: rgba(15, 23, 42, 0.8);
-            box-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
+            border-color: var(--neon-cyan);
+            background: rgba(5, 10, 20, 0.95);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.15), inset 0 0 8px rgba(0, 229, 255, 0.05);
         }
 
-        /* تصميم الزر التفاعلي */
-        button {
-            padding: 16px 30px;
+        input::placeholder {
+            color: #475569;
+        }
+
+        /* زر التوليد النيون المستقبلي */
+        .neon-btn {
             width: 100%;
-            margin-top: 20px;
+            padding: 16px;
             border: none;
             border-radius: 16px;
-            background: var(--primary-gradient);
-            color: #020617;
-            font-size: 17px;
             font-family: 'Cairo', sans-serif;
+            font-size: 16px;
             font-weight: 700;
+            color: #060b13;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-green));
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(34, 197, 94, 0.3);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 5px 20px rgba(0, 255, 102, 0.25);
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.5);
-            filter: brightness(1.1);
-        }
-        
-        button:active {
-            transform: translateY(-1px);
+        .neon-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 255, 102, 0.45);
+            filter: saturate(1.2);
         }
 
-        /* بطاقة الزائر الفاخرة */
-        .card {
+        /* بطاقة الزائر المتطورة من تصميم الـ UI الجديد */
+        .visitor-card {
             display: none;
             margin-top: 35px;
-            padding: 45px 30px;
             width: 100%;
-            max-width: 420px;
-            border-radius: 32px;
-            background: rgba(15, 23, 42, 0.55);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            box-shadow: var(--card-glow), 0 30px 60px rgba(0, 0, 0, 0.6);
+            max-width: 440px;
+            background: linear-gradient(145deg, rgba(15, 23, 42, 0.8), rgba(6, 11, 19, 0.9));
+            border-radius: 30px;
+            padding: 40px 30px;
             box-sizing: border-box;
+            border: 1px solid rgba(0, 255, 102, 0.25);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.7), 0 0 40px rgba(0, 255, 102, 0.1);
+            text-align: center;
             position: relative;
             overflow: hidden;
-            animation: ultraPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            animation: slideUpReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* شريط مضيء علوي داخل البطاقة */
-        .card::before {
+        /* تأثير خط التزيين الجانبي اللامع للبطاقة */
+        .visitor-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--primary-gradient);
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-green));
         }
 
-        @keyframes ultraPop {
-            from { transform: translateY(40px) scale(0.85); opacity: 0; }
-            to { transform: translateY(0) scale(1); opacity: 1; }
+        @keyframes slideUpReveal {
+            from { opacity: 0; transform: translateY(50px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        .card h1 {
-            color: #ffffff;
-            font-size: 24px;
-            font-weight: 400;
-            margin: 0 0 10px 0;
-        }
-
-        #visitorName {
-            font-size: 30px;
-            font-weight: 900;
-            color: var(--primary-glow);
-            margin: 15px 0;
-            word-wrap: break-word;
-            text-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
-        }
-
-        .school {
-            font-weight: 700;
-            color: #a7f3d0;
-            font-size: 18px;
-            margin-top: 5px;
-            margin-bottom: 0;
-            background: linear-gradient(90deg, #a7f3d0, #34d399);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .small {
+        .welcome-text {
             font-size: 14px;
-            color: #64748b;
+            font-weight: 600;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 2px;
             margin-bottom: 5px;
-            font-weight: 400;
+        }
+
+        .visitor-name-display {
+            font-size: 32px;
+            font-weight: 900;
+            color: #ffffff;
+            margin: 15px 0;
+            line-height: 1.3;
+            word-wrap: break-word;
+            text-shadow: 0 0 20px rgba(255,255,255,0.15);
+        }
+
+        .footer-note {
+            font-size: 13px;
+            color: #64748b;
+            margin-top: 25px;
+            margin-bottom: 5px;
+        }
+
+        .dept-tag {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--neon-green);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-shadow: 0 0 10px rgba(0, 255, 102, 0.2);
         }
     </style>
 </head>
 
 <body>
 
-<!-- قسم الشعار العلوي -->
-<div class="logo-container">
-    <img src="./IMG_5131.JPG" width="95" alt="شعار القسم">
-    <div class="logo-text">💻 قسم الحاسب الآلي</div>
-</div>
-
-<!-- حاوية إدخال البيانات -->
-<div class="main-box">
-    <h2>👋 مرحباً بك في جناحنا</h2>
-    <p class="subtitle">سجل اسمك لتستلم بطاقة زيارتك الرقمية</p>
-
-    <div class="input-wrapper">
-        <input id="nameInput" placeholder="اكتب اسمك الثلاثي هنا..." autocomplete="off">
+<div class="brand-logo-zone">
+    <div class="logo-glow-effect">
+        <img src="./IMG_5131.JPG" alt="شعار القسم">
     </div>
-    <button onclick="showCard()">إصدار البطاقة الآن</button>
+    <div class="brand-title">قسم الحاسب الآلي</div>
 </div>
 
-<!-- بطاقة الزائر الذكية -->
-<div class="card" id="card">
-    <h1>🎉 أهلاً وسهلاً بك</h1>
-    <div id="visitorName"></div>
-    <p class="small">يسعدنا ويشرفنا زيارتك لجناح</p>
-    <div class="school">قسم الحاسب الآلي 💻</div>
+<div class="control-panel">
+    <h2>👋 أهلاً بك في فضاء البرمجة</h2>
+    <p>قم بتسجيل اسمك لإصدار تصريح زيارتك الرقمي الذكي</p>
+
+    <div class="input-container">
+        <input id="userNameField" placeholder="أدخل اسمك الكريم هنا..." autocomplete="off">
+    </div>
+    <button class="neon-btn" onclick="generatePassport()">إصدار تصريح الزيارة</button>
+</div>
+
+<div class="visitor-card" id="passportCard">
+    <div class="welcome-text">✦ تـصـريـح زيـارة رقـمـي ✦</div>
+    <div class="visitor-name-display" id="displayName"></div>
+    <div class="footer-note">يسعدنا ويشرفنا حضوركم الرائع في جناح</div>
+    <div class="dept-tag">💻 قسم الحاسب الآلي 💻</div>
 </div>
 
 <script>
-function showCard() {
-    const nameInput = document.getElementById("nameInput");
-    const name = nameInput.value.trim();
+function generatePassport() {
+    const inputField = document.getElementById("userNameField");
+    const nameData = inputField.value.trim();
 
-    if(name === "") {
-        alert("من فضلك أدخل اسمك لتصميم بطاقتك اللطيفة ✨");
-        nameInput.focus();
+    if(nameData === "") {
+        alert("لطفاً، قم بكتابة الاسم أولاً لتوليد البطاقة التفاعلية! 🌟");
+        inputField.focus();
         return;
     }
 
-    document.getElementById("visitorName").innerText = name;
+    // ربط وعرض الاسم داخل البطاقة
+    document.getElementById("displayName").innerText = nameData;
     
-    const card = document.getElementById("card");
-    card.style.display = "block";
+    // إظهار البطاقة وتفعيل الأنيميشن
+    const cardElement = document.getElementById("passportCard");
+    cardElement.style.display = "block";
     
-    // تمرير سلس ليظهر الكارت بالكامل في الشاشات المختلفة
-    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    // التمرير الذكي والسلس للشاشات الصغيرة والتابلت لمشاهدة التصميم
+    cardElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-// تشغيل الزر فوراً عند الضغط على Enter
-document.getElementById("nameInput").addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-        showCard();
+// تشغيل الواجهة تلقائياً وبذكاء عند الضغط على مفتاح Enter في الكيبورد
+document.getElementById("userNameField").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        generatePassport();
     }
 });
 </script>
